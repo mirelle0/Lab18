@@ -17,7 +17,7 @@ struct point {
 typedef struct point Point;
 
 void put_point(Point z) {
-    printf("Точка %c (%.1f, %.1f)", z.name, z.x, z.y);
+    printf("РўРѕС‡РєР° %c (%.1f, %.1f)", z.name, z.x, z.y);
 }
 
 float dist(Point z, Point w) {
@@ -48,29 +48,29 @@ int quarter(Point z) {
 int task1() {
     setlocale(LC_ALL, "RUS");
     Point a, b, m;
-    printf("Введите координаты точки A (x y): ");
+    printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё A (x y): ");
     scanf("%f %f", &a.x, &a.y);
     a.name = 'A';
-    printf("Введите координаты точки B (x y): ");
+    printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё B (x y): ");
     scanf("%f %f", &b.x, &b.y);
     b.name = 'B';
     printf("\n");
     put_point(a);
     printf("\n");
     put_point(b);
-    printf("\nРасстояние между точками: %.2f\n", dist(a, b));
+    printf("\nР Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ С‚РѕС‡РєР°РјРё: %.2f\n", dist(a, b));
     m = middle(a, b);
-    printf("Середина отрезка: ");
+    printf("РЎРµСЂРµРґРёРЅР° РѕС‚СЂРµР·РєР°: ");
     put_point(m);
     printf("\n");
     if (quarter(a) == 0)
-        printf("Точка A лежит на оси координат или в начале координат.\n");
+        printf("РўРѕС‡РєР° A Р»РµР¶РёС‚ РЅР° РѕСЃРё РєРѕРѕСЂРґРёРЅР°С‚ РёР»Рё РІ РЅР°С‡Р°Р»Рµ РєРѕРѕСЂРґРёРЅР°С‚.\n");
     else
-        printf("Точка A находится в %d-й координатной четверти.\n", quarter(a));
+        printf("РўРѕС‡РєР° A РЅР°С…РѕРґРёС‚СЃСЏ РІ %d-Р№ РєРѕРѕСЂРґРёРЅР°С‚РЅРѕР№ С‡РµС‚РІРµСЂС‚Рё.\n", quarter(a));
     if (quarter(b) == 0)
-        printf("Точка B лежит на оси координат или в начале координат.\n");
+        printf("РўРѕС‡РєР° B Р»РµР¶РёС‚ РЅР° РѕСЃРё РєРѕРѕСЂРґРёРЅР°С‚ РёР»Рё РІ РЅР°С‡Р°Р»Рµ РєРѕРѕСЂРґРёРЅР°С‚.\n");
     else
-        printf("Точка B находится в %d-й координатной четверти.\n", quarter(b));
+        printf("РўРѕС‡РєР° B РЅР°С…РѕРґРёС‚СЃСЏ РІ %d-Р№ РєРѕРѕСЂРґРёРЅР°С‚РЅРѕР№ С‡РµС‚РІРµСЂС‚Рё.\n", quarter(b));
     system("pause");
     return 0;
 }
@@ -94,14 +94,14 @@ int task2() {
     char line[81];
 
     char* days[] = {
-        "воскресенье", "понедельник", "вторник",
-        "среда", "четверг", "пятница", "суббота"
+        "РІРѕСЃРєСЂРµСЃРµРЅСЊРµ", "РїРѕРЅРµРґРµР»СЊРЅРёРє", "РІС‚РѕСЂРЅРёРє",
+        "СЃСЂРµРґР°", "С‡РµС‚РІРµСЂРі", "РїСЏС‚РЅРёС†Р°", "СЃСѓР±Р±РѕС‚Р°"
     };
 
     char* months[] = {
-        "января", "февраля", "марта", "апреля",
-        "мая", "июня", "июля", "августа",
-        "сентября", "октября", "ноября", "декабря"
+        "СЏРЅРІР°СЂСЏ", "С„РµРІСЂР°Р»СЏ", "РјР°СЂС‚Р°", "Р°РїСЂРµР»СЏ",
+        "РјР°СЏ", "РёСЋРЅСЏ", "РёСЋР»СЏ", "Р°РІРіСѓСЃС‚Р°",
+        "СЃРµРЅС‚СЏР±СЂСЏ", "РѕРєС‚СЏР±СЂСЏ", "РЅРѕСЏР±СЂСЏ", "РґРµРєР°Р±СЂСЏ"
     };
 
     char* roman[] = {
@@ -109,7 +109,7 @@ int task2() {
         "VII", "VIII", "IX", "X", "XI", "XII"
     };
 
-    char* seasons[] = { "зимы", "весны", "лета", "осени" };
+    char* seasons[] = { "Р·РёРјС‹", "РІРµСЃРЅС‹", "Р»РµС‚Р°", "РѕСЃРµРЅРё" };
 
     int year = now.tm_year + 1900;
     int month = now.tm_mon;
@@ -126,60 +126,60 @@ int task2() {
     if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
         daysInMonth[1] = 29;
 
-    /* Верхняя рамка */
+    
     for (int i = 0; i < 10; i++)
         printf("********************************************************************************\n");
 
-    /* Текущее время */
-    sprintf(str, "Текущее время: %02d:%02d:%02d", hour, min, sec);
+    
+    sprintf(str, "РўРµРєСѓС‰РµРµ РІСЂРµРјСЏ: %02d:%02d:%02d", hour, min, sec);
     center(str);
 
-    /* 1. День недели */
-    sprintf(str, "День недели: %s", days[now.tm_wday]);
+    
+    sprintf(str, "Р”РµРЅСЊ РЅРµРґРµР»Рё: %s", days[now.tm_wday]);
     center(str);
 
-    /* 2. Дата */
-    sprintf(str, "Дата: %02d.%02d.%d", day, month + 1, year);
+    
+    sprintf(str, "Р”Р°С‚Р°: %02d.%02d.%d", day, month + 1, year);
     center(str);
 
-    /* 3. День и месяц */
-    sprintf(str, "Сегодня %d %s", day, months[month]);
+    
+    sprintf(str, "РЎРµРіРѕРґРЅСЏ %d %s", day, months[month]);
     center(str);
 
-    /* 4. День года */
-    sprintf(str, "Сегодня %d-й день %d года", now.tm_yday + 1, year);
+    
+    sprintf(str, "РЎРµРіРѕРґРЅСЏ %d-Р№ РґРµРЅСЊ %d РіРѕРґР°", now.tm_yday + 1, year);
     center(str);
 
-    /* 5. До воскресенья */
+    
     int daysToSunday = (7 - now.tm_wday) % 7;
     int hoursToSunday = daysToSunday * 24 - hour;
 
     if (hoursToSunday < 0)
         hoursToSunday = 0;
 
-    sprintf(str, "До воскресенья %d дней и %d часов",
+    sprintf(str, "Р”Рѕ РІРѕСЃРєСЂРµСЃРµРЅСЊСЏ %d РґРЅРµР№ Рё %d С‡Р°СЃРѕРІ",
         daysToSunday, hoursToSunday);
     center(str);
 
-    /* 6. С первой пары прошло */
+    
     int elapsed = hour * 60 + min - (8 * 60 + 30);
 
     if (elapsed < 0)
         elapsed = 0;
 
-    sprintf(str, "С первой пары прошло %d часов %d минут",
+    sprintf(str, "РЎ РїРµСЂРІРѕР№ РїР°СЂС‹ РїСЂРѕС€Р»Рѕ %d С‡Р°СЃРѕРІ %d РјРёРЅСѓС‚",
         elapsed / 60, elapsed % 60);
     center(str);
 
-    /* 7. До Нового года */
+    
     int monthsLeft = 11 - month;
     int daysLeft = daysInMonth[month] - day;
 
-    sprintf(str, "До Нового года осталось %d месяцев и %d дней",
+    sprintf(str, "Р”Рѕ РќРѕРІРѕРіРѕ РіРѕРґР° РѕСЃС‚Р°Р»РѕСЃСЊ %d РјРµСЃСЏС†РµРІ Рё %d РґРЅРµР№",
         monthsLeft, daysLeft);
     center(str);
 
-    /* 8. До конца пары */
+    
     int currentTime = hour * 60 + min;
     int pairEnd = 0;
 
@@ -198,25 +198,25 @@ int task2() {
 
     if (pairEnd != 0) {
         int remaining = (pairEnd - currentTime) * 60 - sec;
-        sprintf(str, "До конца пары %d минут и %d секунд",
+        sprintf(str, "Р”Рѕ РєРѕРЅС†Р° РїР°СЂС‹ %d РјРёРЅСѓС‚ Рё %d СЃРµРєСѓРЅРґ",
             remaining / 60, remaining % 60);
     }
     else {
-        sprintf(str, "Сейчас занятий нет");
+        sprintf(str, "РЎРµР№С‡Р°СЃ Р·Р°РЅСЏС‚РёР№ РЅРµС‚");
     }
 
     center(str);
 
-    /* 9. До конца месяца и года */
-    sprintf(str, "До конца месяца %d дней, до конца года %d месяцев",
+    
+    sprintf(str, "Р”Рѕ РєРѕРЅС†Р° РјРµСЃСЏС†Р° %d РґРЅРµР№, РґРѕ РєРѕРЅС†Р° РіРѕРґР° %d РјРµСЃСЏС†РµРІ",
         daysInMonth[month] - day, 11 - month);
     center(str);
 
-    /* 10. Месяц римскими цифрами */
-    sprintf(str, "Месяц: %s, год: %d", roman[month], year);
+    
+    sprintf(str, "РњРµСЃСЏС†: %s, РіРѕРґ: %d", roman[month], year);
     center(str);
 
-    /* 11. Время года */
+    
     int season;
 
     if (month == 11 || month <= 1)
@@ -228,13 +228,13 @@ int task2() {
     else
         season = 3;
 
-    char* seasonNames[] = { "зима", "весна", "лето", "осень" };
+    char* seasonNames[] = { "Р·РёРјР°", "РІРµСЃРЅР°", "Р»РµС‚Рѕ", "РѕСЃРµРЅСЊ" };
 
-    sprintf(str, "Время года: %s, год: %02d",
+    sprintf(str, "Р’СЂРµРјСЏ РіРѕРґР°: %s, РіРѕРґ: %02d",
         seasonNames[season], year % 100);
     center(str);
 
-    /* 12. День времени года */
+    
     int seasonDay;
 
     if (season == 0) {
@@ -261,10 +261,10 @@ int task2() {
             seasonDay += daysInMonth[i];
     }
 
-    sprintf(str, "Идет %d-й день %s", seasonDay, seasons[season]);
+    sprintf(str, "РРґРµС‚ %d-Р№ РґРµРЅСЊ %s", seasonDay, seasons[season]);
     center(str);
 
-    /* Нижняя рамка */
+    
     for (int i = 0; i < 10; i++)
         printf("********************************************************************************\n");
 
